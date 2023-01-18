@@ -1,0 +1,66 @@
+//actionee routes
+
+GET http://localhost:80/actionee
+
+###
+GET http://localhost:80/actionee/
+###
+POST http://localhost:80/actionee HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Elizabeth",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+PUT http://localhost:80/actionee/ HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Elizabeth",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+DELETE http://localhost:80/actionee
+###
+
+//tasks routes
+GET http://localhost:80/tasks
+
+###
+GET http://localhost:80/tasks/63c7c925ff8c3137a5d984db
+
+###
+POST http://localhost:80/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Weekly Report",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "14 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Martha",
+    "backupActionee" : "Trent"
+}
+###
+
+PUT http://localhost:80/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Weekly Report",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "14 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Martha",
+    "backupActionee" : "Trent"
+}
+###
+
+DELETE http://localhost:80/tasks/
