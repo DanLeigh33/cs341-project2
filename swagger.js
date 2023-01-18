@@ -5,8 +5,8 @@ const doc = {
     title: 'My API',
     description: 'Project 2 API',
   },
-  host: 'localhost:80',
-  schemes: ['http'],
+  host: 'project2-zp81.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

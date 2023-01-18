@@ -5,10 +5,10 @@
     "description": "Project 2 API",
     "version": "1.0.0"
   },
-  "host": "localhost:80",
+  "host": "project2-zp81.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/actionee/": {
