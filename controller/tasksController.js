@@ -65,7 +65,7 @@ const updateTask = async (req, res) => {
     }
     const id = new ObjectId(req.params.id);
       //create new object to be sent for update
-    const newATask = {
+    const newTask = {
       taskName : req.body.taskName,
       status : req.body.status,
       startDate : req.body.startDate,
