@@ -3,29 +3,48 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getDB  = async (req, res) => {
+  try {
     const allDB = await mongodb.getDatabase().db('project2').collection('actionees').find();
-    allDB.toArray().then((dbs) => {
+    allDB.toArray((err, dbs) => {
+      if (err) {
+        res.status(400).json({ message: err });
+      }
+      res.setHeader('Content-Type', 'application/json');
       res.status(200).json(dbs);
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 
   };
 
 const getActionee = async (req, res) => {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Invalid actionee ID.');
+    }
     const id = new ObjectId(req.params.id);
     const oneDB = await mongodb.getDatabase().db('project2').collection('actionees').find({ _id: id});
-    oneDB.toArray().then((dbs) => {
+    oneDB.toArray((err, dbs) => {
+      if (err) {
+        res.status(400).json({ message: err });
+      }
+      res.setHeader('Content-Type', 'application/json');
       res.status(200).json(dbs[0]);
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
   };
 
 const createActionee = async (req, res) => {
-    //create object to send to the collection
+  try {
     const newActionee = {
       actionee : req.body.actionee,
       activeTasks : req.body.activeTasks,
       completedTasks : req.body.completedTasks
     };
-    
       
       const resp = await mongodb.getDatabase().db('project2').collection('actionees').insertOne(newActionee);
       if (resp.acknowledged) {
@@ -33,28 +52,40 @@ const createActionee = async (req, res) => {
       } else {
         res.status(500).json(resp.error || 'Task could not be performed');
       }
+  } catch (err) {
+    res.status(500).json(err);
+  }
     };
 
 const updateActionee = async (req, res) => {
-    //set object id to be updated
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Invalid actionee ID.');
+    }
     const id = new ObjectId(req.params.id);
-      //create new object to be sent for update
+
     const newActionee = {
       actionee : req.body.actionee,
       activeTasks : req.body.activeTasks,
       completedTasks : req.body.completedTasks
     };
-    
+
     const resp = await mongodb.getDatabase().db('project2').collection('actionees').replaceOne({_id: id}, newActionee);
-    
     if (resp.modifiedCount > 0) {
       res.status(204).send();
     } else {
       res.status(500).json(resp.error || 'Task could not be performed');
   }
-}
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
     
 const deleteActionee = async (req, res) => {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Invalid actionee ID.');
+    }
     const id = new ObjectId(req.params.id);
     
     const resp = await mongodb.getDatabase().db('project2').collection('actionees').deleteOne({_id: id});
@@ -63,6 +94,9 @@ const deleteActionee = async (req, res) => {
     } else {
       res.status(500).json(resp.error || 'Task could not be performed');
   }
+} catch (err) {
+  res.status(500).json(err);
+}
 }
 
   module.exports = {getDB, createActionee, getActionee, updateActionee, deleteActionee};
