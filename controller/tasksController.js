@@ -20,7 +20,7 @@ const getDB  = async (req, res) => {
 const getTask = async (req, res) => {
   try {
     if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Invalid actionee ID.');
+      res.status(400).json('Invalid task ID.');
     }
     const id = new ObjectId(req.params.id);
     const oneDB = await mongodb.getDatabase().db('project2').collection('tasks').find({ _id: id});
@@ -61,7 +61,7 @@ const createTask = async (req, res) => {
 const updateTask = async (req, res) => {
   try {
     if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Invalid actionee ID.');
+      res.status(400).json('Invalid task ID.');
     }
     const id = new ObjectId(req.params.id);
       //create new object to be sent for update
@@ -90,7 +90,7 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   try {
     if (!ObjectId.isValid(req.params.id)) {
-     res.status(400).json('Invalid actionee ID.');
+     res.status(400).json('Invalid task ID.');
     }
     const id = new ObjectId(req.params.id);
     
