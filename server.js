@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
 
+process.on('uncaughtException', (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
