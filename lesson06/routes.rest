@@ -1,0 +1,137 @@
+//LOCALHOST
+//actionee routes
+
+GET http://localhost:80/actionee
+
+###
+GET http://localhost:80/actionee/63c7bde5d8430a443191b663
+###
+POST http://localhost:80/actionee HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Meryl",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+PUT http://localhost:80/actionee/ HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Elizabeth",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+DELETE http://localhost:80/actionee
+###
+
+//tasks routes
+GET http://localhost:80/tasks
+
+###
+GET http://localhost:80/tasks/63c7c925ff8c3137a5d984db
+
+###
+POST http://localhost:80/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Clean up",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "11 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Trent",
+    "backupActionee" : "Martha"
+}
+###
+
+PUT http://localhost:80/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Weekly Report",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "14 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Martha",
+    "backupActionee" : "Trent"
+}
+###
+
+DELETE http://localhost:80/tasks/
+
+###
+//RENDER LINKS
+
+//actionee routes
+
+GET https://project2-zp81.onrender.com/actionee
+
+###
+GET https://project2-zp81.onrender.com/actionee/63c7bde5d8430a443191b663
+###
+POST https://project2-zp81.onrender.com/actionee HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Elizabeth",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+PUT https://project2-zp81.onrender.com/actionee/ HTTP/1.1 
+content-type: application/json
+
+{
+    "actionee" : "Elizabeth",
+    "activeTasks" : "0",
+    "completedTasks" : "0"
+}
+###
+
+DELETE https://project2-zp81.onrender.com/actionee
+###
+
+//tasks routes
+GET https://project2-zp81.onrender.com/tasks
+
+###
+GET https://project2-zp81.onrender.com/tasks/63c7c925ff8c3137a5d984db
+
+###
+POST https://project2-zp81.onrender.com/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Weekly Report",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "14 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Martha",
+    "backupActionee" : "Trent"
+}
+###
+
+PUT https://project2-zp81.onrender.com/tasks HTTP/1.1 
+content-type: application/json
+
+{
+    "taskName" : "Weekly Report",
+    "status" : "Complete",
+    "startDate" : "11 January 2023",
+    "dueDate" : "14 January 2023",
+    "importance" : "Medium",
+    "actionee" : "Martha",
+    "backupActionee" : "Trent"
+}
+###
+
+DELETE https://project2-zp81.onrender.com/tasks/
