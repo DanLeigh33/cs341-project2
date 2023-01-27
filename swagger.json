@@ -10,10 +10,21 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "oauth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://dev-hvfrudghderw6yq3.us.auth0.com",
+        "flow": "implicit",
+        "scopes": {
+            "read:actionee": "read actionee data"
+        }
+    }
+},
   "paths": {
     "/actionee/": {
       "get": {
         "description": "",
+        "security": {"oauth": ["read:actionee"]},
         "parameters": [],
         "responses": {
           "200": {
