@@ -16,7 +16,16 @@
         "authorizationUrl": "https://dev-hvfrudghderw6yq3.us.auth0.com",
         "flow": "implicit",
         "scopes": {
-            "read:actionee": "read actionee data"
+            "read:actionee": "read actionee data",
+            "create:actionee": "insert into actionee",
+            "readbyid:actionee": "read actionee data by id",
+            "modify:actionee": "modify actionee data",
+            "delete:actionee": "delete actionee data",
+            "read:tasks": "read tasks data",
+            "create:task": "insert into task",
+            "readbyid:task": "read task data by id",
+            "modify:task": "modify task data",
+            "delete:task": "delete task data"
         }
     }
 },
@@ -34,6 +43,7 @@
       },
       "post": {
         "description": "",
+        "security": {"oauth": ["create:actionee"]},
         "parameters": [
           {
             "name": "body",
@@ -67,6 +77,7 @@
     "/actionee/{id}": {
       "get": {
         "description": "",
+        "security": {"oauth": ["readbyid:actionee"]},
         "parameters": [
           {
             "name": "id",
@@ -83,6 +94,7 @@
       },
       "put": {
         "description": "",
+        "security": {"oauth": ["modify:actionee"]},
         "parameters": [
           {
             "name": "id",
@@ -120,6 +132,7 @@
       },
       "delete": {
         "description": "",
+        "security": {"oauth": ["delete:actionee"]},
         "parameters": [
           {
             "name": "id",
@@ -141,6 +154,7 @@
     "/tasks/": {
       "get": {
         "description": "",
+        "security": {"oauth": ["read:task"]},
         "parameters": [],
         "responses": {
           "200": {
@@ -150,6 +164,7 @@
       },
       "post": {
         "description": "",
+        "security": {"oauth": ["create:task"]},
         "parameters": [
           {
             "name": "body",
@@ -195,6 +210,7 @@
     "/tasks/{id}": {
       "get": {
         "description": "",
+        "security": {"oauth": ["readbyid:task"]},
         "parameters": [
           {
             "name": "id",
@@ -211,6 +227,7 @@
       },
       "put": {
         "description": "",
+        "security": {"oauth": ["modify:task"]},
         "parameters": [
           {
             "name": "id",
@@ -260,6 +277,7 @@
       },
       "delete": {
         "description": "",
+        "security": {"oauth": ["delete:task"]},
         "parameters": [
           {
             "name": "id",
