@@ -13,7 +13,7 @@
   "securityDefinitions": {
     "oauth": {
         "type": "oauth2",
-        "authorizationUrl": "https://dev-hvfrudghderw6yq3.us.auth0.com",
+        "authorizationUrl": "https://dev-hvfrudghderw6yq3.us.auth0.com/authorize?client_id=zG3cjpDxypIkqex8RgdqTb4htcBPH7jE&scope=openid%20profile%20email&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%3A80%2Fcallback&response_mode=form_post&nonce=t-lI-L9D3mzhi48-NzHrun3edGsZXA40EYS1L_o9AlM&state=eyJyZXR1cm5UbyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAifQ",
         "flow": "implicit",
         "scopes": {
             "read:actionee": "read actionee data",
